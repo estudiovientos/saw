@@ -2,8 +2,13 @@
 """
 Created on Thu Mar 31 11:45:01 2016
 
+Spanish
 Este programa genera un archivo con los datos clasificados por estados 
-(clusters_13_03st.txt)y una gráfica de los datos
+(clusters_4d_6G.txt) y una gráfica de los datos (rum2014_g6_states.png) utilizando el algoritmo GMM
+
+English
+This program generates a file with the data classified by states
+(clusters_4d_6G.txt) and a graph of the data (rum2014_g6_states.png) using the GMM algorithm
 
 @author: magali
 rum_10=6
@@ -19,7 +24,7 @@ import math
 
 def formato():
     
-    data = np.genfromtxt('./Archivos/rum_14_rot.csv',delimiter=',')    #Nombre del archivo a procesar
+    data = np.genfromtxt('./rum_14_rot.csv',delimiter=',')    #Nombre del archivo a procesar
     lst1 = data[:,0]
     lst2 = data[:,1]
     lst3 = data[:,2]
@@ -46,24 +51,18 @@ def sample():
     zmin=z.min()
     zmax=z.max()
     wmin=w.min()
-    wmax=w.max()
-   
+    wmax=w.max()   
     x1=x/(xmax-xmin)
     y1=y/(ymax-ymin)
     z1=z/(zmax-zmin)
     w1=w/(wmax-wmin)
     sz=len(lst1)  
     print sz
-
     samples = np.array([(x1[i],y1[i],z1[i],w1[i]) for i in range(len(x))])    
     return samples    
-    
-
-
-
 
 def fit_samples(samples,num,nombre):   
-    f0=open('./Resultados/Rumorosa/2014/clusters_4d_6G.txt', 'w')
+    f0=open('./clusters_4d_6G.txt', 'w')
     gmix = mixture.GMM(n_components=num, covariance_type='full', n_iter=800, random_state=60)
     #55
     gmix.fit(samples)
@@ -72,7 +71,6 @@ def fit_samples(samples,num,nombre):
     x = np.arange(np.min(samples[:,0]), np.max(samples[:,0]), dx)
     y = np.arange(np.min(samples[:,1]), np.max(samples[:,1]), dx)
     fl=samples[:,2]
-#    print samples
     X, Y = np.meshgrid(x, y)
     plt.figure(figsize=(8, 8))
     ax = plt.gca()
@@ -88,7 +86,6 @@ def fit_samples(samples,num,nombre):
     cad=[]
     for i in range(tam):
         cad.append(0)
-#
     idx =(grp==5)
     ax.scatter(samples[idx,0], samples[idx,1], c='b', alpha=0.1)
     for i in range(len(idx)):
@@ -114,7 +111,6 @@ def fit_samples(samples,num,nombre):
             cad[i]=3       
 
     idx =(grp==1)
-    #lila '#7b68ee'
     ax.scatter(samples[idx,0], samples[idx,1], c='g', alpha=0.1)
     for i in range(len(idx)):
         if str(idx[i])=='True':
@@ -139,6 +135,6 @@ def fit_samples(samples,num,nombre):
 if __name__ == '__main__':
     s = sample()
     componentes=6 
-    name= "./Resultados/Rumorosa/2014/rum2014_g6_states"+".png"
+    name= "./rum2014_g6_states"+".png"
 
     fit_samples(s, componentes, name)
