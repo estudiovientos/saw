@@ -21,7 +21,7 @@ import math
 
 def formato():
     
-    data = np.genfromtxt('./Archivos/rum_14_rot.csv',delimiter=',')    #Nombre del archivo a procesar
+    data = np.genfromtxt('./wind_test.csv',delimiter=',')    #Nombre del archivo a procesar
     lst1 = data[:,0]
     lst2 = data[:,1]
     lst3 = data[:,2]
@@ -61,7 +61,7 @@ def sample():
     return samples     
 
 def fit_samples(samples,num,nombre):
-    f0=open('./Resultados/Rumorosa/2014/clusters_krum4d_6G.txt', 'w')
+    f0=open('./clusters_krum4d_6G.txt', 'w')
     kmeans = KMeans(n_clusters=num, random_state=0).fit(samples)
     
     dx = 0.01
