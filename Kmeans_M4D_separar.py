@@ -1,21 +1,16 @@
 # -*- coding: utf-8 -*-
 """
+@author: magali
 Created on Thu Mar 31 11:45:01 2016
-Español
+Spanish
 
 Este programa genera un archivo con los datos clasificados por estados 
-(clusters_13_03st.txt)y una gráfica de los datos utilizando el algoritmo Kmeans
+(clusters_krum4d_6G.txt)y una gráfica de los datos (rum2014_g6_states_Kmeans.png) utilizando el algoritmo Kmeans
 
 English
 
 This program generates a file with the data classified by states
-(clusters_13_03st.txt) and a graph of the data using the Kmeans algorithm
-
-@author: magali
-rum_10=6
-rum_11=6
-rum_12=9
-rum_13=3
+(clusters_krum4d_6G.txt) and a graph of the data (rum2014_g6_states_Kmeans.png) using the Kmeans algorithm
 """
 
 import numpy as np
@@ -133,6 +128,6 @@ def fit_samples(samples,num,nombre):
 if __name__ == '__main__':
     s = sample()
     componentes=6
-    name= "./Resultados/Rumorosa/2014/rum2014_g6_states_Kmeans"+".png"
+    name= "./rum2014_g6_states_Kmeans"+".png"
 
     fit_samples(s, componentes, name)
