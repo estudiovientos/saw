@@ -55,16 +55,14 @@ def sample():
     sz=len(lst1)  
     print sz
 
-    samples = np.array([(x1[i],y1[i],z1[i],w1[i]) for i in range(len(x))])
-    #samples = np.array([(x[i],y[i],z[i],w[i]) for i in range(len(x))])
+    samples = np.array([(x1[i],y1[i],z1[i],w1[i]) for i in range(len(x))])    
     return samples    
     
 
 
 
 
-def fit_samples(samples,num,nombre):
-    #f0=open('./Resultados/Polar/clusters_04st.txt', 'w')    
+def fit_samples(samples,num,nombre):   
     f0=open('./Resultados/Rumorosa/2014/clusters_4d_6G.txt', 'w')
     gmix = mixture.GMM(n_components=num, covariance_type='full', n_iter=800, random_state=60)
     #55
@@ -78,14 +76,9 @@ def fit_samples(samples,num,nombre):
     X, Y = np.meshgrid(x, y)
     plt.figure(figsize=(8, 8))
     ax = plt.gca()
-#    ax.set_xlim([-17,17])
-#    ax.set_ylim([-17,17])
     ax.set_xlim([-.8,.8])
     ax.set_ylim([-.8,.8])
     #ax.grid(True)
-#    ax.set_xlabel('Velocidad (m/s)')    
-#    ax.set_ylabel('Velocidad (m/s)')    
-#    ax.set_title('Viento en La Rumorosa 2011')      
     ax.set_title('Wind in Rumorosa 2014')      
     ax.set_xlabel('Speed (m/s)')    
     ax.set_ylabel('Speed (m/s)')                 
@@ -126,7 +119,7 @@ def fit_samples(samples,num,nombre):
     for i in range(len(idx)):
         if str(idx[i])=='True':
             cad[i]=2     
-#1e90ff
+
             
     idx =(grp==0)
     ax.scatter(samples[idx,0], samples[idx,1], c='#7b68ee', alpha=0.1)
@@ -136,9 +129,8 @@ def fit_samples(samples,num,nombre):
     for i in range(len(cad)):
         f0.write(str(cad[i])+","+str(fl[i])+"\n");
 
-    f0.close()
-  
-    #plt.contour(X, Y, Z, 20, alpha=0.3)
+    f0.close()  
+
     plt.savefig(nombre,dpi = 300, format="png")
     plt.show()
     plt.clf()
@@ -146,9 +138,7 @@ def fit_samples(samples,num,nombre):
  
 if __name__ == '__main__':
     s = sample()
-    componentes=6
-    #for i in range(4, componentes):
-   # name= "./Resultados/Rumorosa/2011/rum2_4d_6G6"+str(componentes)+".png"
+    componentes=6 
     name= "./Resultados/Rumorosa/2014/rum2014_g6_states"+".png"
 
     fit_samples(s, componentes, name)
