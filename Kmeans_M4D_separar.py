@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Mar 31 11:45:01 2016
+Español
 
 Este programa genera un archivo con los datos clasificados por estados 
-(clusters_13_03st.txt)y una gráfica de los datos
+(clusters_13_03st.txt)y una gráfica de los datos utilizando el algoritmo Kmeans
+
+English
+
+This program generates a file with the data classified by states
+(clusters_13_03st.txt) and a graph of the data using the Kmeans algorithm
 
 @author: magali
 rum_10=6
@@ -57,12 +63,7 @@ def sample():
     print sz
 
     samples = np.array([(x1[i],y1[i],z1[i],w1[i]) for i in range(len(x))])
-    #samples = np.array([(x[i],y[i],z[i],w[i]) for i in range(len(x))])
-    return samples    
-    
-
-
-
+    return samples     
 
 def fit_samples(samples,num,nombre):
     f0=open('./Resultados/Rumorosa/2014/clusters_krum4d_6G.txt', 'w')
@@ -86,7 +87,6 @@ def fit_samples(samples,num,nombre):
     cad=[]
     for i in range(tam):
         cad.append(0)
-#
     idx =(grp==5)
     ax.scatter(samples[idx,0], samples[idx,1], c='b', alpha=0.1)
     for i in range(len(idx)):
@@ -117,7 +117,6 @@ def fit_samples(samples,num,nombre):
     for i in range(len(idx)):
         if str(idx[i])=='True':
             cad[i]=2     
-
             
     idx =(grp==0)
     ax.scatter(samples[idx,0], samples[idx,1], c='#7b68ee', alpha=0.1)
