@@ -24,7 +24,7 @@ import math
 
 def formato():
     
-    data = np.genfromtxt('./rum_14_rot.csv',delimiter=',')    #Nombre del archivo a procesar
+    data = np.genfromtxt('./wind_test.csv',delimiter=',')    #Nombre del archivo a procesar
     lst1 = data[:,0]
     lst2 = data[:,1]
     lst3 = data[:,2]
