@@ -82,7 +82,6 @@ def fit_samples(samples,num,nombre):
     ax.set_ylabel('Speed (m/s)')                 
     grp = gmix.predict(samples)
     tam=len(samples)
-    print tam,"tam"
     cad=[]
     for i in range(tam):
         cad.append(0)
@@ -130,7 +129,8 @@ def fit_samples(samples,num,nombre):
     plt.savefig(nombre,dpi = 300, format="png")
     plt.show()
     plt.clf()
-    #plt.close()
+    plt.close()
+    return 0
  
 if __name__ == '__main__':
     s = sample()
