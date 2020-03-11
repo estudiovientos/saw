@@ -1,6 +1,5 @@
 # GMM_M4D_separar.py
 
-A new GMM-based multivariable method for automatic detection
-of wind dynamic conditions in Mexican California
+WindClAI: Un framework básado en GMM para la clásificación automática de estados de viento
 
-M Arellano-Vazquez, M Zamora-Machado , M. Robles,  O. A. Jaramillo 
+M Arellano-Vazquez, M Zamora-Machado, C Minutti-Martínez
