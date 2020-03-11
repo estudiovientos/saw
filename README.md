@@ -1,4 +1,4 @@
-# GMM_M4D_separar.py
+# WindClAI
 
 WindClAI: Un framework básado en GMM para la clásificación automática de estados de viento
 
