@@ -131,7 +131,7 @@ If you need to run the WindC1IA.py program on Windows or Linux you will need to 
   <img src="./images/ProgramExecution5.png">
 </p>
 
-- **Step 6:** The results are located in the folder named Results
+- **Step 6:** The results are located in the folder named Results.
 
 <p align="center">
   <img src="./images/ProgramExecution6.png">
