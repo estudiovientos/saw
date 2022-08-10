@@ -32,7 +32,7 @@ import sys
 Función clearDataProcess: Elimina las carpetas y archivos 
 generados al iniciar con el procedimiento del programa.
 """
-def clearDataProcess():
+def cleanDataProcess():
     
     #Eliminar archivos de las carpetas
     newFormat1 = glob.glob('./Resultados/processFiles/newFormat1/*.xls')
@@ -168,7 +168,7 @@ def clearDataProcess():
 Función clearResults: Elimina los resultados de la carpeta 
 Archivos una vez iniciado el proceso nuevamente.
 """
-def clearResults():
+def cleanResults():
     resultsXLS = glob.glob('./Resultados/*.xls')
     for py_file in resultsXLS:
         try:
@@ -1177,8 +1177,8 @@ Función main: Función que contiene el orden de ejecución.
 """
 def main():
     mainFiles()
-    clearResults()
-    clearDataProcess()
+    cleanResults()
+    cleanDataProcess()
     interfaceValues=interface()
     createFiles()
     dataError=False
@@ -1201,7 +1201,7 @@ def main():
                 El formato de los archivos es incorrecto, revise el formato adecuado. """)
         dataError=True
 
-    clearDataProcess()
+    cleanDataProcess()
 
     if dataError==False:
         print("""
